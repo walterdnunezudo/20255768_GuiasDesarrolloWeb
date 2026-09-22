@@ -1,0 +1,64 @@
+:root {
+  --color-pagina: #e9e4d8;
+  --color-marco: #3b2415;
+  --color-marco-claro: #5c3a22;
+  --celda-clara: #e9d8b4;
+  --celda-oscura: #6b4226;
+  --color-pieza: #f4ead2;
+  --color-titulo: #3b2415;
+  --fuente-titulos: Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-pagina);
+  color: var(--color-titulo);
+  font-family: "DejaVu Sans", sans-serif;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+h1 {
+  font-family: var(--fuente-titulos);
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+}
+
+#tablero {
+  width: 400px;
+  margin: 0 auto;
+  background-image: linear-gradient(
+    135deg, var(--color-marco-claro), var(--color-marco)
+  );
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35);
+}
+
+#tablero > div {
+  display: flex;
+}
+
+#tablero p {
+  background-color: var(--celda-oscura);
+  color: var(--color-pieza);
+  font-size: 28px;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+#tablero > div:nth-child(odd) p:nth-child(odd) {
+  background-color: var(--celda-clara);
+}
+#tablero > div:nth-child(even) p:nth-child(even) {
+  background-color: var(--celda-clara);
+}

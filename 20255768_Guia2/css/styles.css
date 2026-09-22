@@ -1,0 +1,240 @@
+/* ===== Variables ===== */
+:root {
+  --color-fondo: #05070a;
+  --color-superficie: #0f1720;
+  --color-superficie-alt: #141d28;
+  --color-dorado: #d1a954;
+  --color-texto: #f2f0ea;
+  --color-texto-tenue: #aab2bf;
+  --color-borde: rgba(255, 255, 255, 0.08);
+
+  --fuente-titulos: Georgia, "Times New Roman", serif;
+  --fuente-texto: "Segoe UI", system-ui, -apple-system, Helvetica,
+Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+}
+/*
+    15. la respuesta seria: 68px, 28px, 19px y 14px
+*/
+.wrapper {
+  margin: 0 auto;
+  width: 86%;
+  max-width: 860px;
+}
+
+.hero {
+  background-image:
+    linear-gradient(180deg, rgba(5, 7, 10, 0.35), rgba(5, 7, 10, 0.95)),
+    url("../img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 120px 20px 70px;
+}
+
+.hero-contenido {
+  margin: 0 auto;
+  width: 86%;
+  max-width: 860px;
+}
+.etiqueta {
+  display: inline-block;
+  color: var(--color-dorado);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid var(--color-dorado);
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-family: var(--fuente-titulos);
+  font-size: 3.4rem;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.tagline {
+  font-family: var(--fuente-titulos);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-texto-tenue);
+  margin: 14px 0 26px;
+}
+
+/* Selector de hijos: solo los span que son hijos directos de .badges */
+.badges > span {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--color-texto-tenue);
+}
+
+/* Selector adyacente: separador entre insignias consecutivas */
+.badge + .badge {
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid var(--color-borde);
+}
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-superficie);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+nav > a {
+  color: var(--color-texto-tenue);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  padding: 18px 22px;
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover {
+  color: var(--color-dorado);
+  border-bottom-color: var(--color-dorado);
+}
+
+nav a:active {
+  color: var(--color-texto);
+}
+
+/* --- Bloques de contenido --- */
+.bloque { padding-top: 56px;}
+
+h2 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.4rem;
+  color: var(--color-dorado);
+  border-bottom: 1px solid var(--color-borde);
+  padding-bottom: 14px;
+  margin-bottom: 26px;
+}
+
+/* Sinopsis: imagen y texto lado a lado con flexbox */
+.sinopsis-contenido {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.sinopsis-contenido img {
+  width: 45%;
+  border-radius: 10px;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+}
+
+.sinopsis-texto {
+  flex: 1;
+}
+
+.sinopsis-texto > p:first-child::first-letter,
+.critica-texto > p:first-child::first-letter {
+  color: var(--color-dorado);
+  font-family: var(--fuente-titulos);
+  font-size: 1.9rem;
+}
+
+main > section:first-child .sinopsis-texto > p:first-child::first-line {
+  text-decoration: underline;
+  text-decoration-color: var(--color-dorado);
+}
+
+/* Selector descendiente: cualquier párrafo dentro de un bloque */
+.bloque p {
+  color: var(--color-texto-tenue);
+  line-height: 1.75;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+
+/* ---- Ficha técnica ---- */
+.ficha {
+  border-top: 1px solid var(--color-borde);
+}
+
+/* Selector de hijos: solo las filas que son hijas directas de .ficha */
+.ficha > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+/* Pseudo-clase nth-child con palabras clave, en vez de fórmulas 2n+1/2n */
+.ficha > div:nth-child(odd) {
+  background-color: var(--color-superficie);
+}
+
+.ficha > div:nth-child(even) {
+  background-color: var(--color-superficie-alt);
+}
+
+/* Pseudo-clase first-child: la primera fila se destaca con un acento */
+.ficha > div:first-child {
+  border-top: 2px solid var(--color-dorado);
+}
+
+.ficha dt {
+  color: var(--color-texto-tenue);
+  font-size: 0.85rem;
+}
+
+/* Selector descendiente: dd en cualquier nivel dentro de .ficha */
+.ficha dd {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.mas-info {
+  font-size: 0.85rem;
+  margin-top: 16px;
+}
+
+/* Pseudo-clases de enlace: estado no visitado y visitado */
+.mas-info a:link {
+  color: var(--color-dorado);
+}
+
+.mas-info a:visited {
+  color: #9884ab;
+}
+
+.mas-info a:hover {
+  color: var(--color-texto);
+}
+
+a[href="https://www.imdb.com"] {
+  padding: 3px 10px;
+  border: 1px solid var(--color-borde);
+  border-radius: 20px;
+}
+
+/* ---- Pie de página ---- */
+footer {
+  color: var(--color-texto-tenue);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  margin-top: 60px;
+  padding: 24px;
+  text-align: center;
+  border-top: 1px solid var(--color-borde);
+}

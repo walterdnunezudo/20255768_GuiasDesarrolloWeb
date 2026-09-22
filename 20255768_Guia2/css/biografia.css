@@ -1,0 +1,224 @@
+:root {
+    --color-fondo: #FAF6EF;
+    --color-texto: #2B2B2B;
+    --color-principal: #1F3A3D;
+    --color-acento: #C9A455;
+    --color-borde: #E3DCCB;
+    --fuente-titulos: "Fraunces", serif;
+    --fuente-texto: "Inter", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-texto);
+    line-height: 1.6;
+}
+
+h1, h2 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-principal);
+    margin: 0;
+}
+
+p {
+    max-width: 65ch;
+}
+
+a {
+    color: var(--color-principal);
+    text-decoration-color: var(--color-acento);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--color-acento);
+}
+
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 2.5rem 6vw;
+    background-color: var(--color-principal);
+    color: var(--color-fondo);
+}
+
+.avatar {
+    flex-shrink: 0;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: var(--color-acento);
+    color: var(--color-principal);
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-header h1 {
+    color: var(--color-fondo);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.subtitulo {
+    margin: 0.35rem 0 0;
+    color: var(--color-acento);
+    font-size: 0.95rem;
+}
+
+.site-header nav {
+    margin-left: auto;
+}
+
+.site-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header nav a {
+    color: var(--color-fondo);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.2rem;
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+    border-bottom-color: var(--color-acento);
+}
+
+main {
+    padding: 3rem 6vw 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 3.5rem;
+}
+
+section h2 {
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid var(--color-borde);
+    padding-bottom: 0.5rem;
+}
+
+
+.linea-tiempo {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 3px solid var(--color-acento);
+}
+
+.linea-tiempo li {
+    position: relative;
+    padding: 0 0 2rem 1.75rem;
+}
+
+.linea-tiempo li::before {
+    content: "";
+    position: absolute;
+    left: -0.5rem;
+    top: 0.35rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: var(--color-principal);
+    border: 2px solid var(--color-acento);
+}
+
+.linea-tiempo li:last-child {
+    padding-bottom: 0;
+}
+
+.linea-tiempo time {
+    display: block;
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    color: var(--color-principal);
+    margin-bottom: 0.35rem;
+}
+
+.linea-tiempo p {
+    margin: 0;
+}
+
+footer {
+    background-color: var(--color-principal);
+    color: var(--color-fondo);
+    padding: 2.5rem 6vw;
+    text-align: center;
+}
+
+footer p {
+    max-width: none;
+    margin: 0 0 1rem;
+}
+
+.enlaces {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+}
+
+.enlaces a {
+    color: var(--color-fondo);
+}
+
+.derechos {
+    font-size: 0.85rem;
+    color: var(--color-borde);
+}
+
+@media (max-width: 640px) {
+    .site-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .site-header nav {
+        margin-left: 0;
+    }
+
+    .site-header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .linea-tiempo {
+        border-left-width: 2px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-acento);
+    outline-offset: 2px;
+}
