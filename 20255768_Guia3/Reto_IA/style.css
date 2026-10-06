@@ -1,0 +1,481 @@
+/* ==========================================================================
+   1. VARIABLES DE IDENTIDAD VISUAL Y RESET
+   ========================================================================== */
+:root {
+  /* Paleta cromática: tonos café cálidos y acentos dorados */
+  --color-bg-main: #140e0b;       /* Café muy oscuro / casi ébano */
+  --color-bg-surface: #201713;    /* Café tostado para tarjetas y paneles */
+  --color-bg-elevated: #2d211a;   /* Café madera profunda */
+  --color-gold: #c89b53;          /* Dorado acento principal */
+  --color-gold-hover: #dfb26b;    /* Dorado iluminado para hover */
+  --color-text-main: #f5ede6;     /* Crema claro para legibilidad óptima */
+  --color-text-muted: #bfaea2;    /* Tono arena suave para textos secundarios */
+  --color-border: #3d2d24;        /* Borde sutil café quemado */
+  
+  /* Tipografía */
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Espaciado */
+  --gap-global: 3rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-serif);
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   2. DISTRIBUCIÓN PRINCIPAL CON CSS GRID (CONTENEDOR GLOBAL)
+   ========================================================================== */
+
+/* 
+  .site-layout es el CONTENEDOR GRID PRINCIPAL.
+  - display: grid activa el contexto de cuadrícula.
+  - grid-template-columns: define 12 columnas fraccionarias idénticas para
+    permitir un control de ancho preciso y simétrico en pantallas de escritorio.
+  - grid-template-areas: asigna nombres semánticos a las zonas del diseño.
+  - gap: establece la separación vertical entre cada fila/sección de la página.
+*/
+.site-layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    "header    header    header    header    header    header    header    header    header    header    header    header"
+    "hero      hero      hero      hero      hero      hero      hero      hero      hero      hero      hero      hero"
+    ".         tradicion tradicion tradicion tradicion tradicion tradicion tradicion tradicion tradicion tradicion ."
+    ".         demos     demos     demos     demos     demos     demos     demos     demos     demos     demos     ."
+    ".         servicios servicios servicios servicios servicios servicios servicios servicios servicios servicios ."
+    "footer    footer    footer    footer    footer    footer    footer    footer    footer    footer    footer    footer";
+  row-gap: var(--gap-global);
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   3. UBICACIÓN DE LOS GRID ITEMS PRINCIPALES
+   ========================================================================== */
+
+/* 
+  Cada elemento hijo directo se asocia a su área definida mediante la
+  propiedad grid-area, garantizando su posición en la plantilla estructural.
+*/
+.site-header {
+  grid-area: header;
+}
+
+.hero-section {
+  grid-area: hero;
+}
+
+.section-tradicion {
+  grid-area: tradicion;
+}
+
+.section-demos {
+  grid-area: demos;
+}
+
+.section-servicios {
+  grid-area: servicios;
+}
+
+.site-footer {
+  grid-area: footer;
+}
+
+/* ==========================================================================
+   4. ESTILOS DE COMPONENTES INDIVIDUALES
+   ========================================================================== */
+
+/* Cabecera (Uso interno de Flexbox para alinear logo, navegación y llamada a la acción) */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background-color: rgba(20, 14, 11, 0.95);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .logo a {
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--color-gold);
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-list a {
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+  color: var(--color-gold);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(rgba(20, 14, 11, 0.8), rgba(20, 14, 11, 0.92)),
+              radial-gradient(circle at center, #352117 0%, var(--color-bg-main) 80%);
+  padding: 6rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-tagline {
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-sans);
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem;
+}
+
+/* Botones (Flexbox para composición de botones) */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-gold);
+  color: #140e0b;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold-hover);
+}
+
+.btn-secondary {
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-gold);
+  color: #140e0b;
+}
+
+.btn-whatsapp {
+  background-color: #1f7a3f;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.85rem;
+}
+
+.btn-whatsapp:hover {
+  background-color: #269c51;
+}
+
+/* Tipografía de títulos de sección */
+.section-title {
+  font-size: 2rem;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   5. GRIDS ANIDADOS EN SECCIONES
+   ========================================================================== */
+
+/* 
+  GRID ANIDADO: Sección Tradición
+  - grid-template-columns: divide el bloque en dos mitades simétricas (1fr 1fr).
+  - gap: 3rem separa la columna de texto y la columna de la fotografía.
+*/
+.section-tradicion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+.tradicion-info p {
+  margin-bottom: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.tradicion-media img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+}
+
+/* 
+  GRID ANIDADO: Muestras de audio
+  - grid-template-columns: genera dos columnas iguales (1fr 1fr).
+  - gap: 1.5rem de espacio entre ambas tarjetas de sonido.
+*/
+.demos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.audio-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  padding: 1.8rem;
+  border-radius: 6px;
+}
+
+.audio-card h3 {
+  color: #fff;
+  margin-bottom: 0.3rem;
+  font-size: 1.3rem;
+}
+
+.audio-genre {
+  color: var(--color-gold);
+  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  margin-bottom: 1rem;
+}
+
+.audio-player {
+  width: 100%;
+  filter: invert(0.9) hue-rotate(180deg); /* Armoniza visualmente el reproductor nativo */
+}
+
+/* 
+  GRID ANIDADO: Servicios / Tarjetas
+  - grid-template-columns: 3 columnas iguales de ancho fraccionario (repeat(3, 1fr)).
+  - gap: 2rem de canaleta entre tarjetas.
+*/
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.service-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.service-card-body h3 {
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.service-card-body p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.btn-link {
+  color: var(--color-gold);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.btn-link:hover {
+  color: var(--color-gold-hover);
+  text-decoration: underline;
+}
+
+/* 
+  GRID ANIDADO: Pie de página
+  - grid-template-columns: 4 columnas para repartir la descripción y los datos informativos.
+  - grid-column: 1 / -1 se utiliza en footer-bottom para abarcar todo el ancho inferior.
+*/
+.site-footer {
+  background-color: #0c0806;
+  border-top: 1px solid var(--color-border);
+  padding: 4rem 3rem 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  gap: 2.5rem;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.footer-col p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-family: var(--font-sans);
+}
+
+.footer-links a:hover {
+  color: var(--color-gold);
+}
+
+.footer-bottom {
+  /* Ocupa desde la primera línea de columna hasta la última */
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN (REORGANIZACIÓN A UNA COLUMNA)
+   ========================================================================== */
+@media (max-width: 900px) {
+  /* 
+    REORGANIZACIÓN GRID PRINCIPAL:
+    - grid-template-columns: pasa de 12 columnas a una sola columna (1fr).
+    - grid-template-areas: se apilan verticalmente todas las secciones en un único carril.
+  */
+  .site-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "hero"
+      "tradicion"
+      "demos"
+      "servicios"
+      "footer";
+    row-gap: 2.5rem;
+    padding: 0 1rem;
+  }
+
+  /* Ajuste de padding en Header y Footer que antes abarcaban todo el viewport */
+  .site-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* REORGANIZACIÓN DE GRIDS ANIDADOS A UNA SOLA COLUMNA */
+  .section-tradicion,
+  .demos-grid,
+  .cards-grid,
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .site-footer {
+    padding: 2.5rem 1rem 1.5rem;
+  }
+}

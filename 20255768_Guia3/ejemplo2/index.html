@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compañía Miau</title>
+  <!-- Se corrigió el nombre del archivo: la hoja de Font Awesome 4.7.0 es font-awesome.min.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- El checkbox guarda el estado (abierto/cerrado). Debe ir ANTES de sus hermanos para usar + y ~ -->
+  <input type="checkbox" name="checkMenu" id="checkMenu">
+  <label for="checkMenu" class="labelBotonMenu">
+    <i class="fa fa-bars" id="btnMostrar"></i>
+    <i class="fa fa-times" id="btnOcultar"></i>
+  </label>
+
+  <aside class="sidebar">
+    <header>
+      <div class="logo"><img src="img/logo.png" alt="Logo de Compañía Miau"></div>
+      <div class="titulo">Compañía Miau</div>
+    </header>
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="#"><i class="fa fa-home"></i>Inicio</a></li>
+        <li><a href="#"><i class="fa fa-shopping-bag"></i>Productos</a></li>
+        <li><a href="#"><i class="fa fa-calendar"></i>Actividades</a></li>
+        <li><a href="#"><i class="fa fa-link"></i>Enlaces</a></li>
+        <li><a href="#"><i class="fa fa-cog"></i>Configuración</a></li>
+        <li><a href="#"><i class="fa fa-question-circle-o"></i>Acerca de</a></li>
+        <li><a href="#"><i class="fa fa-envelope-o"></i>Contacto</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="container"></main>
+</body>
+</html>

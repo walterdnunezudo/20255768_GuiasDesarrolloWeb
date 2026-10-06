@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recorrido visual por las siete maravillas del mundo moderno.">
+  <title>Maravillas del Mundo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="inicio">
+  <!-- Encabezado adherente (position: sticky) -->
+  <header class="encabezado-principal">
+    <div class="contenedor barra-navegacion">
+      <a class="marca" href="#inicio">Maravillas del Mundo</a>
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="#maravillas">Maravillas</a></li>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#creditos">Créditos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Presentación con fotografía de fondo -->
+    <section class="presentacion">
+      <div class="contenedor presentacion-contenido">
+        <p class="sobretitulo">Patrimonio y cultura</p>
+        <h1>Siete lugares que transformaron la historia</h1>
+        <p>Un recorrido por construcciones extraordinarias que reflejan el ingenio,
+        las creencias y la identidad de distintas civilizaciones.</p>
+        <a class="boton-principal" href="#maravillas">Iniciar recorrido</a>
+      </div>
+    </section>
+
+    <!-- Galería: .maravillas es el contenedor flexible, cada .maravilla es un elemento flexible -->
+    <section id="maravillas" class="seccion-maravillas contenedor">
+      <header class="titulo-seccion">
+        <p class="sobretitulo">Las siete elegidas</p>
+        <h2>Maravillas del mundo moderno</h2>
+        <p>Cada monumento conserva una historia vinculada con su época y su cultura.</p>
+      </header>
+      <div class="maravillas">
+      <article class="maravilla">
+        <div class="maravilla-imagen">
+          <span class="continente">Asia</span>
+          <img src="images/gran-muralla-china.jpg" alt="Tramo de la Gran Muralla China entre montañas">
+        </div>
+        <div class="maravilla-contenido">
+          <p class="ubicacion">China</p>
+          <h3>Gran Muralla China</h3>
+          <p>Sistema de fortificaciones construido y ampliado durante distintos períodos de la historia china.</p>
+          <a href="https://whc.unesco.org/en/list/438/" target="_blank" rel="noopener noreferrer">Conocer su historia</a>
+        </div>
+      </article>
+      <article class="maravilla">
+        <div class="maravilla-imagen">
+          <span class="continente">Asia</span>
+          <img src="images/petra.jpg" alt="Fachada de Al Khazneh excavada en la roca de Petra">
+        </div>
+        <div class="maravilla-contenido">
+          <p class="ubicacion">Jordania</p>
+          <h3>Petra</h3>
+          <p>Ciudad nabatea tallada en piedra y conectada mediante rutas comerciales del mundo antiguo.</p>
+          <a href="https://whc.unesco.org/en/list/326/" target="_blank" rel="noopener noreferrer">Conocer su historia</a>
+        </div>
+      </article>
+      <article class="maravilla">
+        <div class="maravilla-imagen">
+          <span class="continente">Europa</span>
+          <img src="images/coliseo-roma.jpg" alt="Vista exterior del Coliseo y el Foro Romano">
+        </div>
+        <div class="maravilla-contenido">
+          <p class="ubicacion">Italia</p>
+          <h3>Coliseo de Roma</h3>
+          <p>Anfiteatro del siglo I que se convirtió en uno de los símbolos más reconocibles del Imperio romano.</p>
+          <a href="https://whc.unesco.org/en/list/91/" target="_blank" rel="noopener noreferrer">Conocer su historia</a>
+        </div>
+      </article>
+      <article class="maravilla">
+        <div class="maravilla-imagen">
+          <span class="continente">América</span>
+          <img src="images/chichen-itza.jpg" alt="Templo de Kukulkán en Chichén Itzá">
+        </div>
+        <div class="maravilla-contenido">
+          <p class="ubicacion">México</p>
+          <h3>Chichén Itzá</h3>
+          <p>Centro ceremonial maya cuya arquitectura integra conocimientos astronómicos y una compleja vida política.</p>
+          <a href="https://whc.unesco.org/en/list/483/" target="_blank" rel="noopener noreferrer">Conocer su historia</a>
+        </div>
+      </article>
+      <article class="maravilla">
+        <div class="maravilla-imagen">
+          <span class="continente">América</span>
+          <img src="images/machu-picchu.jpg" alt="Ciudadela de Machu Picchu entre montañas">
+        </div>
+        <div class="maravilla-contenido">
+          <p class="ubicacion">Perú</p>
+          <h3>Machu Picchu</h3>
+          <p>Ciudad inca construida en los Andes mediante una notable adaptación de la arquitectura al paisaje.</p>
+          <a href="https://whc.unesco.org/en/list/274/" target="_blank" rel="noopener noreferrer">Conocer su historia</a>
+        </div>
+      </article>
+      <article class="maravilla">
+        <div class="maravilla-imagen">
+          <span class="continente">Asia</span>
+          <img src="images/taj-mahal.jpg" alt="Taj Mahal visto desde sus jardines">
+        </div>
+        <div class="maravilla-contenido">
+          <p class="ubicacion">India</p>
+          <h3>Taj Mahal</h3>
+          <p>Mausoleo de mármol blanco que reúne tradiciones arquitectónicas persas, islámicas e indias.</p>
+          <a href="https://whc.unesco.org/en/list/252/" target="_blank" rel="noopener noreferrer">Conocer su historia</a>
+        </div>
+      </article>
+      <article class="maravilla">
+        <div class="maravilla-imagen">
+          <span class="continente">América</span>
+          <img src="images/cristo-redentor.jpg" alt="Cristo Redentor sobre el cerro del Corcovado">
+        </div>
+        <div class="maravilla-contenido">
+          <p class="ubicacion">Brasil</p>
+          <h3>Cristo Redentor</h3>
+          <p>Monumento art déco levantado sobre el Corcovado y convertido en símbolo cultural de Río de Janeiro.</p>
+          <a href="https://whc.unesco.org/en/list/1100/" target="_blank" rel="noopener noreferrer">Conocer su historia</a>
+        </div>
+      </article>
+      </div>
+    </section>
+
+    <section id="historia" class="seccion-historia">
+      <div class="contenedor historia-contenido">
+        <div>
+          <p class="sobretitulo">Una selección contemporánea</p>
+          <h2>Patrimonio elegido por votación mundial</h2>
+        </div>
+        <p>La lista fue anunciada en 2007 después de una votación internacional.
+        Aunque reúne lugares de épocas y culturas diferentes, todos representan
+        logros arquitectónicos que continúan despertando interés en la actualidad.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Botón fijo (position: fixed) -->
+  <a class="volver-arriba" href="#inicio" aria-label="Volver al inicio">↑</a>
+
+  <footer id="creditos" class="pie-pagina">
+    <div class="contenedor pie-contenido">
+      <p><strong>Maravillas del Mundo</strong></p>
+      <p>Imágenes de Wikimedia Commons.</p>
+    </div>
+  </footer>
+</body>
+</html>

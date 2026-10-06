@@ -1,0 +1,101 @@
+/* ===== Identidad visual (colores y tipografía de la marca; ajústalos a los de tus guías 1 y 2) ===== */
+:root {
+  --fondo: #1d1510;
+  --superficie: #2a1e16;
+  --texto: #f3e9db;
+  --dorado: #d4a85a;
+  --borde: #4a382a;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Georgia, "Times New Roman", serif; line-height: 1.6; color: var(--texto); background: var(--fondo); }
+img { max-width: 100%; display: block; }
+a { color: var(--dorado); }
+h1, h2, h3 { line-height: 1.2; }
+
+/* =====================================================================
+   GRID PRINCIPAL: distribución de TODA la página
+   - grid-template-columns: dos columnas, 3fr y 2fr (fr = fracción del espacio libre)
+   - grid-template-areas: cada área nombrada se asigna a un item con grid-area
+   - gap: separación entre filas y columnas
+   ===================================================================== */
+.pagina {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-areas:
+    "cabecera   cabecera"
+    "hero       hero"
+    "filosofia  muestras"
+    "ocasiones  ocasiones"
+    "pie        pie";
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem 2rem;
+}
+
+/* Ubicación de cada Grid item en su área */
+.cabecera  { grid-area: cabecera; }
+.hero      { grid-area: hero; }
+.filosofia { grid-area: filosofia; }
+.muestras  { grid-area: muestras; }
+.ocasiones { grid-area: ocasiones; }
+.pie       { grid-area: pie; }
+
+/* ===== Cabecera (Flexbox dentro del componente) ===== */
+.cabecera {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 0.75rem 2rem; padding: 1rem 0; border-bottom: 1px solid var(--borde);
+}
+.marca { font-weight: bold; font-size: 1.1rem; color: var(--dorado); text-decoration: none; }
+.menu { display: flex; flex-wrap: wrap; gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
+.menu a { color: var(--texto); text-decoration: none; }
+.menu a:hover, .menu a:focus-visible { color: var(--dorado); }
+
+/* ===== Botones ===== */
+.boton {
+  display: inline-block; padding: 0.7rem 1.2rem; border-radius: 0.3rem;
+  background: var(--dorado); color: var(--fondo); font-weight: bold; text-decoration: none;
+}
+.boton-claro { background: transparent; color: var(--dorado); border: 1px solid var(--dorado); }
+.boton:hover, .boton:focus-visible { background: var(--texto); color: var(--fondo); }
+.acciones { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* ===== Hero ===== */
+.hero { padding: 4rem 1.5rem; background: var(--superficie); border-radius: 0.5rem; }
+.hero h1 { max-width: 760px; font-size: 2.6rem; margin: 0.5rem 0 1rem; }
+.hero p { max-width: 640px; }
+.sobretitulo { margin: 0; color: var(--dorado); font-weight: bold; }
+
+/* ===== Filosofía y muestras (comparten la fila 3 del grid) ===== */
+.filosofia figure { margin: 1.5rem 0 0; }
+.filosofia img { width: 100%; height: 260px; object-fit: cover; border-radius: 0.5rem; }
+.filosofia figcaption { font-size: 0.9rem; opacity: 0.8; }
+.pista { padding: 1rem; margin-bottom: 1rem; background: var(--superficie); border: 1px solid var(--borde); border-radius: 0.5rem; }
+.pista h3, .pista p { margin: 0 0 0.4rem; }
+.pista audio { width: 100%; }
+
+/* =====================================================================
+   GRID ANIDADO: las tres tarjetas de ocasiones
+   - repeat(auto-fit, minmax(260px, 1fr)): tantas columnas de al menos 260px como quepan
+   ===================================================================== */
+.ocasiones-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.ocasion { display: flex; flex-direction: column; align-items: flex-start; padding-bottom: 1.25rem;
+  background: var(--superficie); border: 1px solid var(--borde); border-radius: 0.5rem; overflow: hidden; }
+.ocasion img { width: 100%; height: 200px; object-fit: cover; }
+.ocasion h3, .ocasion p { margin: 0.75rem 1.25rem 0; }
+.ocasion a { margin: auto 1.25rem 0; padding-top: 1rem; font-weight: bold; }
+
+/* ===== Pie de página: grid interno de 3 columnas, con la última fila completa para los derechos ===== */
+.pie { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--borde); }
+.pie a { display: block; }
+.derechos { grid-column: 1 / -1; margin: 0; font-size: 0.85rem; opacity: 0.8; } /* de la primera a la última línea de columna */
+
+/* ===== Adaptación a pantallas pequeñas: se redefinen las áreas en una sola columna ===== */
+@media (max-width: 800px) {
+  .pagina {
+    grid-template-columns: 1fr;
+    grid-template-areas: "cabecera" "hero" "filosofia" "muestras" "ocasiones" "pie";
+  }
+  .pie { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2rem; }
+}
