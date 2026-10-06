@@ -1,4 +1,4 @@
-/* ===== Paso 3: paleta de colores con variables ===== */
+
 :root {
   --color-texto: #342e29;
   --color-fondo: #f5efe6;
@@ -13,10 +13,8 @@
   --color-sombra: rgba(52, 46, 41, 0.10);
 }
 
-/* Paso 42g: los enlaces internos (#maravillas, etc.) no quedan ocultos bajo el encabezado adherente */
 html { scroll-padding-top: 5rem; }
 
-/* ===== Paso 4: body ===== */
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -25,28 +23,22 @@ body {
   background-color: var(--color-fondo);
 }
 
-/* Paso 5: contenedor centrado (90 % hasta un máximo de 1140px) */
 .contenedor {
   width: 90%;
   max-width: 1140px;
   margin: 0 auto;
 }
 
-/* Paso 6: las imágenes nunca superan el ancho de su contenedor */
 img { max-width: 100%; }
 
-/* ===== Paso 7: estilos de texto ===== */
 h1, h2, h3 { line-height: 1.2; }
 h2, h3 { color: var(--color-principal); }
 a { color: var(--color-acento); }
 a:hover, a:focus-visible { color: var(--color-principal); }
 
-/* ===== Paso 8: encabezado ===== */
 .encabezado-principal {
   color: var(--color-superficie);
   background-color: var(--color-principal);
-  /* Pasos 35 a 37: sticky necesita top para saber dónde adherirse;
-     z-index 10 lo coloca sobre las etiquetas (z-index: 1) y debajo del botón fijo (20) */
   position: sticky;
   top: 0;
   z-index: 10;
@@ -58,17 +50,16 @@ a:hover, a:focus-visible { color: var(--color-principal); }
   text-decoration: none;
 }
 
-/* Paso 9: barra con Flexbox */
 .barra-navegacion {
   display: flex;
-  justify-content: space-between; /* marca y menú en extremos opuestos (eje principal) */
-  align-items: center;            /* centrado en el eje transversal */
-  flex-wrap: wrap;                /* permite salto de línea en pantallas angostas */
-  gap: 0.75rem 2rem;              /* fila | columna */
+  justify-content: space-between; 
+  align-items: center;          
+  flex-wrap: wrap;                
+  gap: 0.75rem 2rem;              
   padding: 1rem 0;
 }
 
-/* Paso 10: menú */
+
 .menu {
   margin: 0;
   padding: 0;
@@ -80,12 +71,10 @@ a:hover, a:focus-visible { color: var(--color-principal); }
 .menu a { color: var(--color-superficie); text-decoration: none; }
 .menu a:hover, .menu a:focus-visible { color: var(--color-contraste); }
 
-/* ===== Pasos 11 y 12: presentación con fotografía y capa de contraste ===== */
 .presentacion {
   padding: 4rem 0;
   color: var(--color-superficie);
   background-color: var(--color-principal);
-  /* La primera capa (degradado) se dibuja sobre la fotografía */
   background-image:
     linear-gradient(to right, var(--color-capa-inicial), var(--color-capa-final)),
     url("../images/gran-muralla-china.jpg");
@@ -93,7 +82,6 @@ a:hover, a:focus-visible { color: var(--color-principal); }
   background-position: center;
 }
 
-/* Paso 13: contenido de la presentación */
 .presentacion h1 { max-width: 760px; margin-bottom: 1rem; font-size: 2.5rem; }
 .presentacion p { max-width: 640px; }
 .sobretitulo {
@@ -104,9 +92,8 @@ a:hover, a:focus-visible { color: var(--color-principal); }
 }
 .presentacion .sobretitulo { color: var(--color-contraste); }
 
-/* Paso 14: botón principal */
 .boton-principal {
-  display: inline-block; /* respeta márgenes y relleno verticales y fluye como texto */
+  display: inline-block; 
   margin-top: 1rem;
   padding: 0.75rem 1.25rem;
   color: var(--color-superficie);
@@ -119,64 +106,53 @@ a:hover, a:focus-visible { color: var(--color-principal); }
   background-color: var(--color-contraste);
 }
 
-/* ===== Paso 15: sección de la galería ===== */
 .seccion-maravillas { padding: 3rem 0; }
 .titulo-seccion { max-width: 680px; margin-bottom: 2rem; }
 .titulo-seccion h2 { margin: 0 0 0.75rem; font-size: 2rem; }
 
-/* ===== Pasos 16 a 20: Flexbox en la galería ===== */
 .maravillas {
-  display: flex;            /* Paso 16: sin wrap, intenta una sola fila y comprime las tarjetas */
-  flex-wrap: wrap;          /* Paso 17: permite varias filas */
-  gap: 1.5rem;              /* Paso 19: separación entre tarjetas (gap no suma espacio en los bordes exteriores) */
-  justify-content: center;  /* Paso 20: centra la última fila incompleta */
+  display: flex;           
+  flex-wrap: wrap;          
+  gap: 1.5rem;              
+  justify-content: center;  
 }
 .maravilla {
-  flex: 1 1 300px;          /* Paso 18: crece, se reduce y parte de 300px */
-  max-width: 360px;         /* Paso 20: evita que la última tarjeta crezca demasiado */
-
-  /* Paso 21: superficie de la tarjeta */
+  flex: 1 1 300px;         
+  max-width: 360px;         
   background-color: var(--color-superficie);
   border: 1px solid var(--color-borde);
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px var(--color-sombra);
-
-  /* Paso 22: recorta lo que sobresale para respetar las esquinas redondeadas */
   overflow: hidden;
-
-  /* Paso 26: tarjeta como columna flexible */
   display: flex;
   flex-direction: column;
 }
 
-/* Paso 23 y 24: fotografías uniformes */
 .maravilla img {
   display: block;
   width: 100%;
   height: 220px;
-  object-fit: cover; /* cover llena el área y recorta; contain mostraría la foto completa con espacios libres */
+  object-fit: cover; 
 }
 
-/* Paso 25: contenido de la tarjeta */
+
 .maravilla-contenido {
   padding: 1.25rem;
-  /* Paso 26: columna flexible que absorbe el alto sobrante de la tarjeta */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  align-items: flex-start; /* el enlace ocupa solo su ancho en lugar de estirarse */
+  align-items: flex-start; 
 }
 .ubicacion { margin: 0; font-size: 0.85rem; font-weight: bold; color: var(--color-acento); }
 .maravilla h3 { margin: 0.25rem 0 0.75rem; font-size: 1.35rem; }
 .maravilla-contenido a {
   font-weight: bold;
-  margin-top: auto; /* absorbe todo el espacio libre vertical y empuja el enlace al fondo */
+  margin-top: auto; 
 }
 
-/* ===== Paso 33 y 34: etiquetas con posicionamiento absoluto ===== */
-.maravilla-imagen { position: relative; } /* antecesor posicionado, sin desplazarlo */
+.maravilla-imagen { position: relative; } 
 .continente {
-  position: absolute; /* sale del flujo normal */
+  position: absolute; 
   top: 1rem;
   right: 1rem;
   z-index: 1;
@@ -188,9 +164,9 @@ a:hover, a:focus-visible { color: var(--color-principal); }
   font-weight: bold;
 }
 
-/* ===== Pasos 38 y 39: botón fijo para volver al inicio ===== */
+
 .volver-arriba {
-  position: fixed; /* se ubica respecto de la ventana */
+  position: fixed; 
   right: 1rem;
   bottom: 1rem;
   z-index: 20;
@@ -207,7 +183,7 @@ a:hover, a:focus-visible { color: var(--color-principal); }
   text-decoration: none;
 }
 
-/* ===== Paso 40: sección histórica ===== */
+
 .seccion-historia { padding: 3rem 0; background-color: var(--color-fondo-secundario); }
 .historia-contenido {
   display: flex;
@@ -215,18 +191,12 @@ a:hover, a:focus-visible { color: var(--color-principal); }
   gap: 2rem;
   align-items: center;
 }
-.historia-contenido > * { flex: 1 1 300px; } /* hijos directos: crecen, se reducen y parten de 300px */
+.historia-contenido > * { flex: 1 1 300px; } 
 
-/* ===== Paso 41: pie de página ===== */
 .pie-pagina {
-  padding: 2rem 0 5rem; /* relleno inferior amplio para que el botón fijo no tape el texto */
+  padding: 2rem 0 5rem;
   color: var(--color-superficie);
   background-color: var(--color-principal);
 }
 
-/* ===== Pasos 27 a 32: experimento (ya eliminado, se deja como referencia) =====
-.maravilla:nth-child(2) { position: relative; left: 50px; top: 30px; z-index: 2; }
- - relative: se desplaza desde su posición original y conserva su espacio.
- - absolute: sale del flujo; top/left se miden desde el antecesor posicionado más cercano
-   (o desde el documento si no existe). static ignora top/left.
-*/
+

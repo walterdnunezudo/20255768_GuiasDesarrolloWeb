@@ -1,7 +1,6 @@
 body { font-family: "Times New Roman", serif; margin: 1.5rem; }
 
-/* .baraja es el antecesor posicionado: las cartas (absolute) se miden desde ella.
-   Se le da alto fijo porque las cartas salen del flujo y no aportan altura. */
+
 .baraja {
   position: relative;
   width: 300px;
@@ -9,17 +8,15 @@ body { font-family: "Times New Roman", serif; margin: 1.5rem; }
   margin: 1.5rem 0 2.5rem 5rem;
 }
 
-/* Cada carta sale del flujo normal; top y left la ubican dentro de .baraja */
+
 .baraja img { position: absolute; }
 
-/* ----- Resultado 1: cada carta más a la derecha y abajo; z-index CRECE, la última (As) queda al frente ----- */
 .resultado1 .c1 { left: 0;    top: 0;    z-index: 1; }
 .resultado1 .c2 { left: 15px; top: 10px; z-index: 2; }
 .resultado1 .c3 { left: 30px; top: 20px; z-index: 3; }
 .resultado1 .c4 { left: 45px; top: 30px; z-index: 4; }
 .resultado1 .c5 { left: 60px; top: 40px; z-index: 5; }
 
-/* ----- Resultado 2: mismo desplazamiento; z-index DECRECE, la primera (10) queda al frente ----- */
 .resultado2 .c1 { left: 0;    top: 0;    z-index: 5; }
 .resultado2 .c2 { left: 15px; top: 10px; z-index: 4; }
 .resultado2 .c3 { left: 30px; top: 20px; z-index: 3; }
