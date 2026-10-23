@@ -1,24 +1,20 @@
-//Accedemos al parrafo que nos permitira imprimir el resultado
 const parrafo = document.querySelector("#idParrafo");
 console.log(parrafo);
 
-//Accedemos a cada boton por medio de la API DOM
 const btnSumar = document.querySelector("#idBtnSumar");
 const btnRestar = document.querySelector("#idBtnRestar");
 const btnMultiplicar = document.querySelector("#idBtnMultiplicar");
 const btnDividir = document.querySelector("#idBtnDividir");
 
-//Agregamos el evento click a los botones, adicionalmente
-//se le asigna la funcion que realizara la operacion
+
 btnSumar.addEventListener("click", sumar);
 btnRestar.addEventListener("click", restar);
 btnMultiplicar.addEventListener("click", multiplicar);
 btnDividir.addEventListener("click", dividir);
 
-//Creamos la variable que tendra el valor del resultado de la operacion matematica
 let resultado;
 
-//Funcion de operaciones
+
 function sumar() {
   let numero1 = parseFloat(prompt("Ingrese el primer numero a sumar"));
   let numero2 = parseFloat(prompt("Ingrese el segundo numero a sumar"));

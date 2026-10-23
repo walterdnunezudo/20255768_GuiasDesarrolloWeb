@@ -1,4 +1,3 @@
-// Creación de la tabla utilizando concatenación de cadenas
 let table = "<table>";
 table += "<thead>";
 table += "<tr>";
@@ -19,7 +18,6 @@ const alumnos = [
   { id: 5, nombre: "Oscar Armando", apellido: "López Rodriguez", correo: "oscar.lopez@estudiante.esen.edu.sv" }
 ];
 
-// Agregar filas de los datos al cuerpo de la tabla
 alumnos.forEach(alumno => {
   table += "<tr>";
   table += `<td scope='row'>${alumno.id}</td>`;
@@ -31,6 +29,5 @@ alumnos.forEach(alumno => {
 
 table += "</tbody>";
 table += "</table>";
-// Agregar la tabla al contenedor
 const contenedor = document.querySelector("#idContenedor");
 contenedor.innerHTML = table;

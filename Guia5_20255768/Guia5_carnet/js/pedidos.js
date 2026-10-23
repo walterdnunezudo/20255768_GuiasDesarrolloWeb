@@ -1,8 +1,5 @@
-// ===== Datos =====
 const pedidos = [];
-let precioFiltro = null; // null = sin filtro activo
-
-// ===== Procesamiento de datos (sin tocar el HTML) =====
+let precioFiltro = null; 
 function validarPedido(producto, precio, cantidad) {
   const reglas = [
     { valido: producto.trim() !== "", mensaje: "El nombre del producto no puede estar vacío." },
@@ -29,7 +26,6 @@ const calcularMontoTotal = lista =>
 
 const formatearMoneda = valor => `$${valor.toFixed(2)}`;
 
-// ===== Actualización de elementos HTML =====
 const inputProducto = document.querySelector("#producto");
 const inputPrecio = document.querySelector("#precio");
 const inputCantidad = document.querySelector("#cantidad");
